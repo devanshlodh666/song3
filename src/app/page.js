@@ -1,13 +1,13 @@
 "use client"
 import 'remixicon/fonts/remixicon.css'
 import Bod from "./component/Bod"
-import { useState,useEffect} from 'react'
+import { useState} from 'react'
 import { useSession } from 'next-auth/react';
 import { useDispatch} from 'react-redux'
 import { addSong,addImg } from './reducer/slice'
-
+import song from './data/song';
 export default function Home() { 
-  const [son, setson] = useState([]);
+  // const [son, setson] = useState([]);
   const [img, setimg] = useState("")
   const dispatch = useDispatch(); 
    let {status,data:session} =  useSession()
@@ -21,17 +21,17 @@ export default function Home() {
     })  
       }  
     }
-    useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/song`).then(a=>a.json())
-    .then(a=>{
-      setson(a)
-    }) 
-    }, [])
+    // useEffect(() => {
+    // fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/song`).then(a=>a.json())
+    // .then(a=>{
+    //   setson(a)
+    // }) 
+    // }, [])
     
 
   return ( 
     <>      
-    <Bod song={son}/>   
+    <Bod song={song}/>   
     </> 
   ) 
 }    
