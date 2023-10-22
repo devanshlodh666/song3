@@ -14,7 +14,7 @@ export default function Home() {
     if (status === 'authenticated') {
       if (img  === "") {  
     setimg(session?.user);
-    fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/${session?.user?.email}`).then(a=>a.json())
+    fetch(`api/${session?.user?.email}`).then(a=>a.json())
     .then(a=>{
       dispatch(addSong(a.like))
       dispatch(addImg(a.img))

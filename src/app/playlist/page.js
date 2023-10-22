@@ -9,7 +9,7 @@ export default function page(requset) {
   const { status, data: session } = useSession();
   if (status === "authenticated") {
     if (data == "") {
-      fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/${session?.user?.email}`)
+      fetch(`api/${session?.user?.email}`)
       .then((a) => a.json())
       .then((a) => {
       dispatch(addSong(a.like))

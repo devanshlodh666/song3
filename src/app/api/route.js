@@ -53,6 +53,6 @@ export async function PUT(requset) {
 export async function DELETE(request) {
    let a = await request.json();
    let data = await like.updateOne({email:a.email},{$pull:{like:{name:a.name}}});
-   console.log(data);
+   // console.log(data);
    return NextResponse.json({data})
 }
