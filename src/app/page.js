@@ -12,7 +12,7 @@ export default function Home() {
   const dispatch = useDispatch(); 
    let {status,data:session} =  useSession()
     if (status === 'authenticated') {
-      if (img  === "") {
+      if (img  === "") {  
     setimg(session?.user);
     fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/${session?.user?.email}`).then(a=>a.json())
     .then(a=>{
