@@ -6,9 +6,9 @@ const db = ()=>{
                 dbName:'MusicPlayer'
             }
         )
-        // console.log('connected'); 
+        // das console.log('connected'); 
     } catch (error) {
         console.log(error);
     }
-}  
+}   
 export default db 
