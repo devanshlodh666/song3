@@ -7,7 +7,7 @@ const db = ()=>{
             }
         )
         // das console.log('connected'); 
-    } catch (error) {
+    } catch (error) { 
         console.log(error);
     }
 }   

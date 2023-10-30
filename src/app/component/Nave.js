@@ -33,14 +33,14 @@ const Nave =  (req) => {
     <h1>Sonica</h1>
     </Link> 
     </div> 
-     <ul >
+     <ul style={{overflow:"visible"}}>
      
         <li key={1}><input value={search} onChange={(e)=>search_song(e.target.value)} placeholder="search song" type="text" name="search" id="search"/></li>  
         <li className="mobile"><Link href={"/"} className="link" >Home</Link></li>
-        <li className="mobile">{(session)?<Link href={"/playlist"} className="link" >Like</Link>:<p className="link" onClick={()=>signIn('google')}>playlist</p>}</li>  
-        <li key={2} className="mobile"> 
+        <li className="mobile">{(session)?<Link href={"/like"} className="link" >Like</Link>:<p className="link" onClick={()=>signIn('google')}>playlist</p>}</li>  
+        <li style={{overflow:'visible'}} key={2} className="mobile"> 
         <Link key={2000} className="link" href={'/'}>
-        <div style={{borderRadius:'50%',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{(!session)?signIn('google'):signOut('google')}}   key={100} className="profile_style">
+        <div  style={{borderRadius:'50%',overflow:'hidden',display:'flex',alignItems:'center',justifyContent:'center'}} onClick={()=>{(!session)?signIn('google'):signOut('google')}}   key={100} className="profile_style">
         <img height={38} src={(im === "acc.svg")?"account.svg":im} alt="." />
         </div>       
         </Link></li>

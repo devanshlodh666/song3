@@ -25,7 +25,6 @@ export async function PUT(requset) {
 
    a.like = a.like.filter(v=>{
        if(v.name != data.name){ 
-         console.log(v);    
          return v
       } 
       else{

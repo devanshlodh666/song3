@@ -1,25 +1,18 @@
 "use client"
 import { memo, useState } from "react"
-import Play from "./Play"
 import Comp from "./comp"
 import Nave from "./Nave"
 import Foot from "./Foot"
 import { createContext } from "react"
-import { useDispatch,useSelector } from "react-redux"
-import { addS } from "../reducer/slice"
+import {song_play} from '@/app/layout'
+import { useContext } from "react"
 export const cont = createContext();
 function Body({song}) {
-
-const data = useSelector((data)=>data.S); 
-const dispatch = useDispatch();
-  const [m, setm] = useState('')
+const setplay_song = useContext(song_play)
   const [search, setsearch] = useState('');
  function search_song(e) {    
     setsearch(e);
   } 
-  function playMusic(e) {
-    setm(e)
-  }
   const [hin, sethin] = useState("none") 
   const [eng, seteng] = useState("none")
   song.map(e=>{
@@ -33,7 +26,6 @@ const dispatch = useDispatch();
   return(   
         <>
         <div className="body"> 
-        { (data != "")?<Play ke={data.id} name={data.name} url={data.url} m={data.link}/>:""}
       <Foot />  
       <div className="content">
       <cont.Provider value={{search,search_song}}>  
@@ -49,7 +41,7 @@ const dispatch = useDispatch();
           <>
           <Comp
             ke={e.id}  
-            onClick={()=>dispatch(addS(e))}            
+            onClick={()=>{setplay_song(e)}}            
             url={e.url}
             link={e.link}
             name={e.name} 
@@ -73,7 +65,7 @@ const dispatch = useDispatch();
           <>
           <Comp
             ke={e.id}  
-            onClick={()=>dispatch(addS(e))}            
+            onClick={()=>{setplay_song(e)}}            
             url={e.url}
             link={e.link}
             name={e.name} 

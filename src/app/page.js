@@ -5,8 +5,11 @@ import { useState} from 'react'
 import { useSession } from 'next-auth/react';
 import { useDispatch} from 'react-redux'
 import { addSong,addImg } from './reducer/slice'
+import { useSelector } from 'react-redux';
 import song from './data/song';
 export default function Home() { 
+  const data = useSelector((data)=>data.S); 
+
   // const [son, setson] = useState([]);
   const [img, setimg] = useState("")
   const dispatch = useDispatch(); 
@@ -21,17 +24,9 @@ export default function Home() {
     })  
       }  
     }
-    // useEffect(() => {
-    // fetch(`${process.env.NEXT_PUBLIC_BASE_API_URL}/api/song`).then(a=>a.json())
-    // .then(a=>{
-    //   setson(a)
-    // }) 
-    // }, [])
-    
-
   return ( 
     <>      
-    <Bod song={song}/>   
+    <Bod song={song}/> 
     </> 
   ) 
 }    

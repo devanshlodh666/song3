@@ -4,6 +4,7 @@ import { useSelector,useDispatch } from "react-redux"
 import { useState } from "react"
 import { useSession } from "next-auth/react"
 import { addImg, addSong } from "../reducer/slice"
+
 const page = () => {
   const [img, setimg] = useState("");
   const dispatch = useDispatch();
@@ -19,7 +20,6 @@ const page = () => {
     }) 
     } 
   }
-
     return (
     <>
         <Body
