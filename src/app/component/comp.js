@@ -6,18 +6,20 @@ import { addSong,addImg } from "../reducer/slice";
 import { memo } from "react";
 function Comp(props) {
   const like = useSelector(like=>like.songs)
-  console.log(like);
   const dispatch = useDispatch();
   let {status,data:session} =  useSession();
   const [hasLike, sethasLike] = useState(true)
-  if (like.length != 0) {
-    like.map((v)=>{
-      if (v.name === props.name  && hasLike === true){
-        sethasLike(false)
-      }
-      
-    })
-  }
+  
+  let b = like.map((v)=>{
+    if (v.name === props.name) {
+      return "hello"
+    }
+    else{
+      return "ni"
+    }
+  })
+  let c = b.includes("hello")
+  
  
   const a = async ()=>{
    if (session) {
@@ -60,7 +62,7 @@ function Comp(props) {
             <div id={props.key}  className="song_name">
              <h1 id={props.key} onClick={props.onClick}>{props.name}</h1>
              <div className="option">
-              <img onClick={()=>{a()}} src={hasLike?"like.svg":"heart-red.svg"} alt="" />
+              <img onClick={()=>{a()}} src={!c?"like.svg":"heart-red.svg"} alt="" />
             </div>                 
             
             </div>
