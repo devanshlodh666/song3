@@ -12,7 +12,7 @@ const page = () => {
   const {status,data:session} = useSession();
   if (status === 'authenticated') { 
     if (img === "") {
-      setimg(session?.user)
+      setimg(session?.user?.image)
       fetch(`api/${session?.user?.email}`).then(a=>a.json())
     .then(a=>{
       dispatch(addSong(a.like));

@@ -8,6 +8,8 @@ import { useSelector } from "react-redux"
 const Nave =  (req) => {
   
   const im = useSelector(a=>a.img);
+  console.log("im",im);
+  
   const [img, setimg] = useState("")
   let {status,data:session} =  useSession()
   if (status === 'authenticated') {
@@ -18,7 +20,7 @@ const Nave =  (req) => {
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify({
           email:session?.user?.email,
-          img:session?.user?.image    
+          img:"logind.png"  
         })     
       })
     } 
