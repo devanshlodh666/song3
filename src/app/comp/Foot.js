@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { memo, useState } from "react"
 import { useSelector } from "react-redux"
+import { useEffect } from "react"
 import { signIn, signOut, useSession } from "next-auth/react"
 const Foot = ()=>{
   const im = useSelector(a=>a.img);
@@ -11,6 +12,16 @@ const Foot = ()=>{
         setimg(session?.user)
       } 
     }
+    useEffect(() => {
+      let storedUser = localStorage.getItem("user");
+  
+      if (!storedUser) return;
+      
+        const usr = JSON.parse(storedUser); // ✅ Convert string to object
+        if (!usr?.email) return;
+        setimg(usr)
+    }, [])
+    
     return(
         <> 
             <div key={50000} className="foot">

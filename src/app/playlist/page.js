@@ -1,6 +1,6 @@
 "use client";
 import { useSession } from "next-auth/react";
-import Body from "../component/Bod";
+import Body from "../comp/Bod";
 import { useDispatch,useSelector } from "react-redux";
 import { addSong,addImg} from "../reducer/slice";
 export default function page(requset) {

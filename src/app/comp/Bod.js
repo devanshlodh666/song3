@@ -6,7 +6,9 @@ import Foot from "./Foot"
 import { createContext } from "react"
 import {song_play} from '@/app/layout'
 import { useContext } from "react"
-export const cont = createContext();
+
+export const cont = createContext();4
+
 function Body({song}) {
 const setplay_song = useContext(song_play)
   const [search, setsearch] = useState('');
@@ -23,9 +25,11 @@ const setplay_song = useContext(song_play)
        seteng(""); 
       }
     })
+    // &&toast.success("logout successful")
   return(   
         <>
         <div className="body"> 
+  
       <Foot />  
       <div className="content">
       <cont.Provider value={{search,search_song}}>  

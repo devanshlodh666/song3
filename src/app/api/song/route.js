@@ -8,11 +8,11 @@ export async function GET(request){
 }    
 
 export async function PUT(request){
-       db();
+       db();   
        const data = await request.json();
        let song = await Songs.findOne({details:'songs'})
 //       console.log(song);
-       song.songs.push({
+       song.songs.push({  
             id: data.id,
             type:data.type,
             name: data.name,
@@ -35,7 +35,7 @@ export async function PUT(request){
        return NextResponse.json(song)
 }
 
-
+ 
 export async function DELETE(request) {
        let a = await request.json();
        let data = await Songs.updateOne({details:"songs"},{$pull:{songs:{id:a.id}}})

@@ -3,7 +3,8 @@ import { createSlice,nanoid,current } from "@reduxjs/toolkit";
 const initialState = {
   songs:[],
   img:"acc.svg",
-  S:[]   
+  S:[],
+  email1:"" 
  } 
 
 const Slice = createSlice({ 
@@ -18,9 +19,12 @@ const Slice = createSlice({
     },
     addS:(state,action)=>{
       state.S = action.payload
+    },
+    addEmail1:(state,action)=>{
+      state.email1 = action.payload
     }
   } 
 })  
 
-export const {addSong,addImg,addS} = Slice.actions
+export const {addSong,addImg,addS,addEmail1} = Slice.actions
 export default Slice.reducer

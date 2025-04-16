@@ -59,5 +59,16 @@ const songSchema = new mongoose.Schema({
         }
     ]
 })
+
+
+
+
+const userSchema = new mongoose.Schema({
+    email: { type: String, unique: true, sparse: true },
+    phone: { type: String, unique: true, sparse: true },
+    password: String,
+  }); 
+
+export const UserSc = mongoose.models.user  || mongoose.model('user',userSchema)
 export const Songs = mongoose.models.songs || mongoose.model('songs',songSchema);
-export const like =  mongoose.models.like  ||  mongoose.model('like',likeSchema) ;       
+export const like =  mongoose.models.like  ||  mongoose.model('like',likeSchema) ;                 

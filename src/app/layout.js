@@ -5,8 +5,10 @@ const inter = Inter({ subsets: ['latin'] })
 import { Providers } from './reducer/provider'
 import { createContext } from 'react'
 import { useState } from 'react'
-import Play from './component/Play'
+import Play from './comp/Play'
 import Head from 'next/head'
+import { ThemeProvider } from "@/components/theme-provider"
+
 export const song_play = createContext()
 export default function RootLayout({ children,pageProps }) {
   const [play_song, setplay_song] = useState("")
@@ -20,7 +22,9 @@ export default function RootLayout({ children,pageProps }) {
      <Providers>
     <song_play.Provider  value={setplay_song}>
     { (play_song != "")?<Play ke={play_song.id} name={play_song.name} url={play_song.url} m={play_song.link}/>:""}
-     {children} 
+    <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+        </ThemeProvider>
     </song_play.Provider>
      </Providers>
 

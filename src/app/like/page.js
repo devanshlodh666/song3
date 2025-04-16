@@ -1,5 +1,5 @@
 "use client"
-import Body from "../component/Bod"
+import Body from "../comp/Bod"
 import { useSelector,useDispatch } from "react-redux"
 import { useState } from "react"
 import { useSession } from "next-auth/react"

@@ -7,4 +7,4 @@ export async function GET(request,content) {
     let email = content.params.findSong;
     let data = await like.findOne({email})
     return NextResponse.json(data)
-} 
+}   
