@@ -7,7 +7,7 @@ import { createContext } from 'react'
 import { useState } from 'react'
 import Play from './comp/Play'
 import Head from 'next/head'
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "../components/theme-provider"
 
 export const song_play = createContext()
 export default function RootLayout({ children,pageProps }) {
